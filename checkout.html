@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Shabnam Boutique</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="checkout.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="checkout-body">
+    <header class="checkout-header">
+        <a href="index.html" class="logo">
+            <span class="logo-icon"><i class="ph ph-flower-lotus"></i></span>
+            Shabnam<span class="logo-dot">.</span>
+        </a>
+        <a href="index.html" class="back-link"><i class="ph ph-arrow-left"></i> Back to Shop</a>
+    </header>
+
+    <main class="checkout-container container">
+        <div id="checkoutContent" class="checkout-grid hidden">
+            <!-- Left Column: Forms -->
+            <div class="checkout-forms">
+                <h2 class="checkout-title">Secure Checkout</h2>
+                
+                <form id="checkoutForm">
+                    <section class="form-section">
+                        <h3>1. Shipping Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" required placeholder="Jane Doe">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required placeholder="jane@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required placeholder="123-456-7890">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" required placeholder="123 Boutique Lane">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h3>2. Payment Details (Simulation)</h3>
+                        <div class="payment-card-mock">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <div class="input-with-icon">
+                                        <i class="ph ph-credit-card"></i>
+                                        <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry (MM/YY)</label>
+                                    <input type="text" id="expiry" placeholder="12/25" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvc">CVC</label>
+                                    <input type="text" id="cvc" placeholder="123" required>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <button type="submit" class="btn btn-primary btn-glow w-100 place-order-btn">
+                        <i class="ph ph-lock-key"></i> Place Order
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="cartItemsContainer" class="cart-items">
+                    <!-- Items injected here -->
+                </div>
+                
+                <div class="summary-totals">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="subtotalAmount">₹0.00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Total</span>
+                        <span id="totalAmount">₹0.00</span>
+                    </div>
+                </div>
+                
+                <div class="security-badges">
+                    <span><i class="ph ph-shield-check"></i> Secure SSL Checkout</span>
+                    <span><i class="ph ph-arrow-u-up-left"></i> 30-Day Returns</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="emptyCartMessage" class="empty-cart-message hidden">
+            <i class="ph ph-shopping-cart" style="font-size: 4rem; color: var(--color-border); margin-bottom: 1rem;"></i>
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added any items to your cart yet.</p>
+            <a href="index.html#collections" class="btn btn-primary" style="margin-top: 1.5rem;">Continue Shopping</a>
+        </div>
+        
+        <div id="successMessage" class="success-message hidden">
+            <i class="ph-fill ph-check-circle" style="font-size: 4rem; color: #2E7D32; margin-bottom: 1rem;"></i>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for shopping with Shabnam Boutique. Your simulated order has been saved.</p>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 1.5rem;">Return to Home</a>
+        </div>
+    </main>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="firebase-init.js"></script>
+    
+    <script src="checkout.js"></script>
+</body>
+</html>

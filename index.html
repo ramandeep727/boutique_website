@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design By Shabnam Boutique | Ladies Suits & Designer Wear</title>
+    <meta name="description" content="Design By Shabnam Boutique — All types of ladies suits, designer suits, and unstitched suits. Call 9805022990.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Floating Decorative Orbs -->
+    <div class="floating-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="mainHeader">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="ph ph-flower-lotus"></i></span>
+                Shabnam<span class="logo-dot">.</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#collections" class="nav-link">Collections</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn" aria-label="Search"><i class="ph ph-magnifying-glass"></i></button>
+                <a href="#" class="icon-btn" aria-label="User Profile" id="userProfileBtn">
+                    <i class="ph ph-user"></i>
+                </a>
+                <a href="#" class="icon-btn wishlist-btn" aria-label="Wishlist" onclick="openWishlistModal(event)">
+                    <i class="ph ph-heart"></i>
+                    <span class="cart-badge" id="wishlistBadge" style="display: none; background: #e91e63;">0</span>
+                </a>
+                <a href="checkout.html" class="icon-btn cart-btn" aria-label="Cart">
+                    <i class="ph ph-shopping-bag"></i>
+                    <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+                </a>
+                <button class="icon-btn mobile-menu-btn" aria-label="Menu" id="mobileMenuBtn"><i class="ph ph-list"></i></button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-inner">
+                <button class="close-menu-btn" id="closeMenuBtn"><i class="ph ph-x"></i></button>
+                <div class="mobile-nav-brand">
+                    <span class="logo-icon"><i class="ph ph-flower-lotus"></i></span>
+                    <span class="logo">Shabnam<span class="logo-dot">.</span></span>
+                </div>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#collections" class="nav-link">Collections</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="mobile-nav-footer">
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="ph ph-pinterest-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    </header>
+
+    <!-- Marquee Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span><i class="ph ph-sparkle"></i> All Types of Ladies Suits Available</span>
+                <span><i class="ph ph-star"></i> Designer Suits &amp; Unstitched Suits</span>
+                <span><i class="ph ph-gift"></i> Call us: 9805022990</span>
+                <span><i class="ph ph-heart"></i> Handcrafted with love &amp; elegance</span>
+                <span><i class="ph ph-sparkle"></i> All Types of Ladies Suits Available</span>
+                <span><i class="ph ph-star"></i> Designer Suits &amp; Unstitched Suits</span>
+                <span><i class="ph ph-gift"></i> Call us: 9805022990</span>
+                <span><i class="ph ph-heart"></i> Handcrafted with love &amp; elegance</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-image-wrapper">
+                <img src="images/storefront.webp" alt="Design By Shabnam Boutique Storefront" class="hero-image" id="heroImage">
+                <div class="hero-overlay"></div>
+            </div>
+            <!-- Floating petals -->
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="container hero-content">
+                <span class="hero-subtitle fade-in">
+                    <span class="line"></span>
+                    Design By Shabnam
+                    <span class="line"></span>
+                </span>
+                <h1 class="hero-title fade-in">
+                    <span class="title-line">Your Style,</span>
+                    <span class="title-line accent">Our Craft</span>
+                </h1>
+                <p class="hero-text fade-in">All types of ladies suits, designer suits &amp; unstitched suits — handcrafted with passion and elegance.</p>
+                <div class="hero-btns fade-in">
+                    <a href="#collections" class="btn btn-primary btn-glow">
+                        <i class="ph ph-shopping-bag"></i>
+                        Explore Collections
+                    </a>
+                    <a href="#about" class="btn btn-glass">
+                        Our Story
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="hero-stats fade-in">
+                    <div class="stat">
+                        <span class="stat-number" data-target="500">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="120">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Unique Designs</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years of Craft</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Featured Collections Section -->
+        <section id="collections" class="section collections">
+            <div class="container">
+                <div class="section-header fade-in-scroll">
+                    <span class="section-subtitle">Our Speciality</span>
+                    <h2 class="section-title">Curated For You</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="category-filters" id="categoryFilters" style="margin-bottom: 2.5rem; text-align: center;">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Festive Wear">Festive Wear</button>
+                    <button class="filter-btn" data-filter="Bridal Couture">Bridal Couture</button>
+                    <button class="filter-btn" data-filter="Sarees">Sarees</button>
+                    <button class="filter-btn" data-filter="Winter Collection">Winter</button>
+                </div>
+                
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be dynamically loaded here by script.js -->
+                </div>        
+                <div class="text-center" style="margin-top: 3.5rem;">
+                    <a href="#" class="btn btn-outline btn-shimmer">
+                        <span>View All Products</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container about-container">
+                <div class="about-content fade-in-scroll">
+                    <span class="section-subtitle">Our Story</span>
+                    <h2 class="section-title">Design By<br>Shabnam Boutique</h2>
+                    <div class="section-line left"></div>
+                    <p class="about-text">At Shabnam Boutique, every stitch tells a story of dedication and artistry. We specialize in all types of ladies suits — from elegant designer wear to premium unstitched fabrics — crafted with love and a keen eye for detail.</p>
+                    <p class="about-text">Our skilled tailors combine traditional craftsmanship with modern trends to create outfits that make every woman feel confident, beautiful, and uniquely herself.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="feature-icon"><i class="ph ph-scissors"></i></div>
+                            <span>Expert Tailoring</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon"><i class="ph ph-hand-heart"></i></div>
+                            <span>Handcrafted</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon"><i class="ph ph-diamond"></i></div>
+                            <span>Premium Fabrics</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-outline btn-shimmer" style="margin-top: 1.5rem;">
+                        <span>Visit Our Store</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="about-image-wrapper fade-in-scroll">
+                    <img src="images/team.webp" alt="Shabnam Boutique team at work" class="about-image">
+                    <div class="about-experience-badge">
+                        <span class="number" data-target="10">0</span><span class="number-plus">+</span>
+                        <span class="text">Years of<br>Elegance</span>
+                    </div>
+                    <div class="about-image-decoration"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery">
+            <div class="container">
+                <div class="section-header fade-in-scroll">
+                    <span class="section-subtitle">Inside The Boutique</span>
+                    <h2 class="section-title">Our Space</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item gallery-item-large fade-in-scroll">
+                        <img src="images/storefront.webp" alt="Shabnam Boutique Storefront">
+                        <div class="gallery-overlay">
+                            <span>Our Storefront</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in-scroll" style="transition-delay: 0.1s;">
+                        <img src="images/boutique_inside.webp" alt="Inside the Boutique">
+                        <div class="gallery-overlay">
+                            <span>Our Collection</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in-scroll" style="transition-delay: 0.2s;">
+                        <img src="images/workspace.jpg" alt="Tailoring Workspace">
+                        <div class="gallery-overlay">
+                            <span>The Workshop</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in-scroll" style="transition-delay: 0.3s;">
+                        <img src="images/team.webp" alt="Our Talented Team">
+                        <div class="gallery-overlay">
+                            <span>Our Team</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in-scroll" style="transition-delay: 0.4s;">
+                        <img src="images/signboard.webp" alt="Shabnam Boutique Signboard">
+                        <div class="gallery-overlay">
+                            <span>Visit Us</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section testimonials">
+            <div class="container">
+                <div class="section-header fade-in-scroll">
+                    <span class="section-subtitle">What They Say</span>
+                    <h2 class="section-title">Loved By Our Clients</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in-scroll">
+                        <div class="testimonial-stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Shabnam Boutique has completely transformed my wardrobe. The quality is unmatched and every dress feels like it was made just for me!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div>
+                                <strong>Ayesha Khan</strong>
+                                <span>Loyal Customer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in-scroll" style="transition-delay: 0.15s;">
+                        <div class="testimonial-stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The attention to detail is incredible. I get compliments every single time I wear something from Shabnam. Absolutely love it!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">P</div>
+                            <div>
+                                <strong>Priya Sharma</strong>
+                                <span>Fashion Blogger</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in-scroll" style="transition-delay: 0.3s;">
+                        <div class="testimonial-stars">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star-half"></i>
+                        </div>
+                        <p class="testimonial-text">"From the moment you walk in, you feel special. The staff is warm and the collection is always fresh and on-trend. My go-to boutique!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">S</div>
+                            <div>
+                                <strong>Sara Ali</strong>
+                                <span>Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="newsletter-bg-shapes" aria-hidden="true">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            <div class="container newsletter-container fade-in-scroll">
+                <i class="ph ph-envelope-simple newsletter-icon"></i>
+                <h2 class="newsletter-title">Join the Inner Circle</h2>
+                <p class="newsletter-text">Subscribe to receive exclusive updates, early access to new collections, and special member-only offers.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required class="newsletter-input" id="newsletterEmail">
+                    <button type="submit" class="btn btn-primary btn-glow">
+                        <i class="ph ph-paper-plane-tilt"></i>
+                        Subscribe
+                    </button>
+                </form>
+                <p class="newsletter-note"><i class="ph ph-lock-simple"></i> We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </section>
+
+        <!-- Quick View Modal -->
+        <div id="quickViewModal" class="quick-view-modal hidden">
+            <div class="quick-view-overlay" id="quickViewOverlay"></div>
+            <div class="quick-view-content">
+                <button class="close-quick-view" id="closeQuickView"><i class="ph ph-x"></i></button>
+                <div class="quick-view-grid">
+                    <div class="quick-view-image-container">
+                        <img id="qvImage" src="" alt="Product">
+                    </div>
+                    <div class="quick-view-details">
+                        <span id="qvCategory" class="qv-category"></span>
+                        <h2 id="qvName" class="qv-title"></h2>
+                        <div class="qv-rating" id="qvRating"></div>
+                        <p id="qvPrice" class="qv-price"></p>
+                        <p id="qvDescription" class="qv-description"></p>
+                        
+                        <div class="qv-options">
+                            <label for="qvSize">Select Size</label>
+                            <select id="qvSize" class="qv-select">
+                                <!-- Options injected dynamically -->
+                            </select>
+                        </div>
+                        
+                        <button id="qvAddToCartBtn" class="btn btn-primary btn-glow w-100" style="width: 100%; margin-top: 1rem;">
+                            <i class="ph ph-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wishlist Modal -->
+        <div id="wishlistModal" class="quick-view-modal hidden">
+            <div class="quick-view-overlay" id="wishlistOverlay"></div>
+            <div class="quick-view-content" style="max-width: 600px;">
+                <button class="close-quick-view" id="closeWishlist"><i class="ph ph-x"></i></button>
+                <div style="padding: 2rem;">
+                    <h2 class="checkout-title" style="margin-bottom: 1rem; padding-bottom: 0.5rem; font-family: var(--font-heading); color: var(--color-accent); border-bottom: 1px solid var(--color-border);">Your Wishlist</h2>
+                    <div id="wishlistItemsContainer" class="cart-items" style="max-height: 400px; overflow-y: auto;">
+                        <!-- Items injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i class="ph ph-flower-lotus"></i></span>
+                    Shabnam<span class="logo-dot">.</span>
+                </a>
+                <p class="footer-desc">Design By Shabnam Boutique — All types of ladies suits, designer suits &amp; unstitched suits.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="ph ph-pinterest-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul>
+                    <li><a href="#home"><i class="ph ph-caret-right"></i> Home</a></li>
+                    <li><a href="#collections"><i class="ph ph-caret-right"></i> Shop Collection</a></li>
+                    <li><a href="#about"><i class="ph ph-caret-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="ph ph-caret-right"></i> Size Guide</a></li>
+                    <li><a href="#"><i class="ph ph-caret-right"></i> FAQs</a></li>
+                    <li><a href="admin.html"><i class="ph ph-lock-key"></i> Admin Login</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4 class="footer-heading">Legal</h4>
+                <ul>
+                    <li><a href="#"><i class="ph ph-caret-right"></i> Terms of Service</a></li>
+                    <li><a href="#"><i class="ph ph-caret-right"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="ph ph-caret-right"></i> Shipping & Returns</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 class="footer-heading">Contact Us</h4>
+                <p><i class="ph ph-map-pin"></i> <a href="https://maps.app.goo.gl/NgfeRGjJx2tMakkLA" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='inherit'">Lotus Villa Rd, Sector 115, Sahibzada Ajit Singh Nagar, Punjab 140307</a></p>
+                <p><i class="ph ph-phone"></i> <a href="tel:9805022990" style="color: var(--color-primary); font-weight: 600;">9805022990</a></p>
+                <p><i class="ph ph-clock"></i> Mon - Sat: 10am - 8pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; 2026 Design By Shabnam Boutique. All rights reserved.</p>
+                <p>Crafted with <i class="ph-fill ph-heart" style="color: var(--color-primary);"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="ph ph-caret-up"></i>
+    </button>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="firebase-init.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
