@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'A stunning rose gold anarkali suit embellished with intricate sequin work, perfect for weddings and festive occasions. Comes with a matching net dupatta.',
             sizes: 'S, M, L, XL, Custom',
             price: '₹14,500',
-            image: 'images/product_dress.png',
+            image: 'images/WhatsApp%20Image%202026-06-24%20at%206.30.34%20PM.jpeg',
             rating: 4.8,
             ratingCount: 124,
             badge: 'Bestseller',
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Elegant midnight blue suit crafted from premium velvet, featuring subtle zari embroidery on the neckline and cuffs. Ideal for evening gatherings.',
             sizes: 'M, L, XL',
             price: '₹12,000',
-            image: 'images/boutique_inside.webp',
+            image: 'images/WhatsApp%20Image%202026-06-24%20at%206.30.34%20PM%20(1).jpeg',
             rating: 4.9,
             ratingCount: 86,
             badge: 'New Arrival',
@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'A lightweight, ethereal blush pink lehenga made of fine organza silk. Hand-embroidered floral motifs scattered across the skirt create a magical look.',
             sizes: 'Custom',
             price: 'Custom Pricing',
-            image: 'images/product_dress.png',
+            image: 'images/WhatsApp%20Image%202026-06-24%20at%206.30.34%20PM.jpeg',
             rating: 5.0,
             ratingCount: 42,
             badge: 'Premium',
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'A classic emerald green kurta set woven in pure silk, paired with straight pants. Simple, elegant, and timeless.',
             sizes: 'S, M, L',
             price: '₹8,500',
-            image: 'images/boutique_inside.webp',
+            image: 'images/WhatsApp%20Image%202026-06-24%20at%206.30.34%20PM%20(1).jpeg',
             rating: 4.7,
             ratingCount: 210,
             badge: null,
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'An exquisite ivory saree featuring heavy pearl and crystal embellishments on the border. Paired with a designer stitched blouse.',
             sizes: 'One Size',
             price: '₹22,000',
-            image: 'images/product_dress.png',
+            image: 'images/WhatsApp%20Image%202026-06-24%20at%206.30.34%20PM.jpeg',
             rating: 4.6,
             ratingCount: 56,
             badge: 'Limited Edition',
@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'A vibrant mustard yellow sharara suit detailed with gota patti work. The perfect choice for Haldi or Mehndi ceremonies.',
             sizes: 'S, M, L, XL',
             price: '₹10,500',
-            image: 'images/boutique_inside.webp',
+            image: 'images/WhatsApp%20Image%202026-06-24%20at%206.30.34%20PM%20(1).jpeg',
             rating: 4.9,
             ratingCount: 112,
             badge: null,
@@ -779,5 +779,87 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (closeQuickViewBtn) closeQuickViewBtn.addEventListener('click', closeQuickViewModal);
     if (quickViewOverlay) quickViewOverlay.addEventListener('click', closeQuickViewModal);
+
+    /* ==========================================================================
+       Feedback Form
+       ========================================================================== */
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackStars = document.querySelectorAll('#feedbackStars i');
+    const feedbackRating = document.getElementById('feedbackRating');
+
+    if (feedbackStars.length > 0) {
+        let currentRating = 0;
+
+        feedbackStars.forEach((star, index) => {
+            // Hover effect
+            star.addEventListener('mouseenter', () => {
+                feedbackStars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.classList.replace('ph-star', 'ph-fill');
+                        s.classList.add('hovered');
+                    } else {
+                        s.classList.replace('ph-fill', 'ph-star');
+                        s.classList.remove('hovered');
+                    }
+                });
+            });
+
+            // Mouse leave effect
+            star.addEventListener('mouseleave', () => {
+                feedbackStars.forEach((s, i) => {
+                    s.classList.remove('hovered');
+                    if (i < currentRating) {
+                        s.classList.replace('ph-star', 'ph-fill');
+                    } else {
+                        s.classList.replace('ph-fill', 'ph-star');
+                    }
+                });
+            });
+
+            // Click effect
+            star.addEventListener('click', () => {
+                currentRating = index + 1;
+                feedbackRating.value = currentRating;
+                feedbackStars.forEach((s, i) => {
+                    if (i < currentRating) {
+                        s.classList.replace('ph-star', 'ph-fill');
+                    } else {
+                        s.classList.replace('ph-fill', 'ph-star');
+                    }
+                });
+            });
+        });
+    }
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!feedbackRating.value) {
+                alert('Please select a rating before submitting.');
+                return;
+            }
+            
+            const btn = feedbackForm.querySelector('button[type="submit"]');
+            const originalHtml = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="ph ph-check-circle"></i> Thank you for your feedback!';
+            btn.style.background = 'linear-gradient(135deg, #2E7D32, #1B5E20)';
+            
+            feedbackForm.reset();
+            feedbackRating.value = '';
+            
+            // Reset stars
+            feedbackStars.forEach(s => s.classList.replace('ph-fill', 'ph-star'));
+            
+            // Trigger an event to reset the local scoped currentRating (handled via re-init if needed, or by simple visually resetting)
+            // It will reset visually but if user hovers again, it would rely on currentRating.
+            // A more robust way is to dispatch an event, but for a simple interaction this visual reset + value clearing works perfectly.
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHtml;
+                btn.style.background = '';
+            }, 3000);
+        });
+    }
 
 });
